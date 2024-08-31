@@ -5,7 +5,8 @@ import { CollisionData } from "../core/interface/collision-data.interface";
 function Table(tableData: { tableData: CollisionData[] }) {
   const data: CollisionData[] = [...tableData.tableData];
   const columns: GridColumn[] = [
-    { title: "Crash Id", width: 100 }
+    { title: "Crash Id", width: 100 },
+    { title: "Crash date", width: 300 },
   ]
 
   const getData = ([col, row]: Item): GridCell => {
@@ -18,6 +19,13 @@ function Table(tableData: { tableData: CollisionData[] }) {
         allowOverlay: false,
         displayData: crash.collision_id
       };
+    } else if (col === 1) {
+      return {
+        kind: GridCellKind.Text,
+        data: new Date(crash.crash_date).toString(),
+        allowOverlay: false,
+        displayData: new Date(crash.crash_date).toString()
+      }
     } else {
       throw new Error();
     }
