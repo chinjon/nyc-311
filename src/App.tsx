@@ -1,25 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-// import fetch from 'node-fetch'
+import { CollisionData } from './core/interface/collision-data.interface'
 import './App.css'
+import Table from './components/table'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [data, setData] = useState([])
+  const [data, setData] = useState<CollisionData[]>([])
 
   useEffect(() => {
-    fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
+    fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100')
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setData(data);
       });
   }, []);
-
-  console.log(data)
 
   return (
     <>
@@ -43,6 +41,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Suspense>
+        <Table tableData={data}></Table>
+      </Suspense>
     </>
   )
 }
