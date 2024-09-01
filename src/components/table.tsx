@@ -12,22 +12,24 @@ function Table(tableData: { tableData: CollisionData[] }) {
   const getData = ([col, row]: Item): GridCell => {
     const crash = data[row];
 
-    if (col === 0) {
-      return {
-        kind: GridCellKind.Text,
-        data: crash.collision_id,
-        allowOverlay: false,
-        displayData: crash.collision_id
-      };
-    } else if (col === 1) {
-      return {
-        kind: GridCellKind.Text,
-        data: new Date(crash.crash_date).toString(),
-        allowOverlay: false,
-        displayData: new Date(crash.crash_date).toString()
+    switch (col) {
+      case 0: {
+        return {
+          kind: GridCellKind.Text,
+          data: crash.collision_id,
+          allowOverlay: false,
+          displayData: crash.collision_id
+        } 
+      } case 1: {
+        return {
+          kind: GridCellKind.Text,
+          data: new Date(crash.crash_date).toString(),
+          allowOverlay: false,
+          displayData: new Date(crash.crash_date).toString()
+        }
+      } default: {
+        throw new Error();
       }
-    } else {
-      throw new Error();
     }
   }
   return (
