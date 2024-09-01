@@ -7,13 +7,17 @@ function App() {
   const [data, setData] = useState<CollisionData[]>([])
 
   useEffect(() => {
-    fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100')
+    try {
+      fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100')
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         setData(data);
       });
+    } catch (error) {
+      throw new Error(`${error}`)
+    }
   }, []);
 
   return (
