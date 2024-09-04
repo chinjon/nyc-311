@@ -4,11 +4,12 @@ import './App.css'
 import Table from './components/table'
 
 function App() {
-  const [data, setData] = useState<CollisionData[]>([])
+  const [data, setData] = useState<CollisionData[]>([]);
+  const reqUrl = encodeURI('https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100&$order=crash_date DESC')
 
   useEffect(() => {
     try {
-      fetch('https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100')
+      fetch(reqUrl)
       .then((res) => {
         return res.json();
       })
