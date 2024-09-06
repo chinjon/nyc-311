@@ -3,6 +3,7 @@ export type CollisionData = {
   readonly contributing_factor_vehicle_1: string;
   readonly contributing_factor_vehicle_2: string;
   readonly crash_date: string;
+  readonly borough: string;
   readonly longitude?: string;
   readonly latitude?: string;
   readonly create_date: string;
