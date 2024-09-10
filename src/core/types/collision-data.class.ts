@@ -1,3 +1,4 @@
+import { CollisionDataType } from "../interface/collision-data-type.interface";
 export class CollisionData {
   constructor(
     readonly collision_id: string,
@@ -24,5 +25,9 @@ export class CollisionData {
     this.number_of_cyclist_killed = number_of_cyclist_killed ?? "";
     this.number_of_motorist_injured = number_of_motorist_injured ?? "";
     this.number_of_motorist_killed = number_of_motorist_killed ?? "";
+  }
+
+  formatCollisionData(data: CollisionDataType): CollisionDataType {
+    return { collision_id: data.collision_id, crash_date: data.crash_date, create_date: data.create_date }
   }
 }

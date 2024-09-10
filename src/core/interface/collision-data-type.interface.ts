@@ -1,12 +1,12 @@
-export type CollisionData = {
+export type CollisionDataType = {
   readonly collision_id: string;
-  readonly contributing_factor_vehicle_1: string;
-  readonly contributing_factor_vehicle_2: string;
   readonly crash_date: string;
-  readonly borough: string;
+  readonly create_date: string;
+  readonly contributing_factor_vehicle_1?: string;
+  readonly contributing_factor_vehicle_2?: string;
+  readonly borough?: string;
   readonly longitude?: string;
   readonly latitude?: string;
-  readonly create_date: string;
   readonly number_of_cyclist_injured?: string;
   readonly number_of_cyclist_killed?: string;
   readonly number_of_motorist_injured?: string;

@@ -1,6 +1,6 @@
 import { DataEditor, GridCellKind, GridColumn, Item, GridCell } from "@glideapps/glide-data-grid";
 import "@glideapps/glide-data-grid/dist/index.css";
-import { CollisionData } from "../core/interface/collision-data.interface";
+import { CollisionData } from "../core/interface/collision-data-type.interface";
 
 function Table(tableData: { tableData: CollisionData[] }) {
   const data: CollisionData[] = [...tableData.tableData];

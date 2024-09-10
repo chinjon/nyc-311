@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense } from 'react'
-import { CollisionData } from './core/interface/collision-data.interface'
+import { CollisionData } from './core/interface/collision-data-type.interface'
 import './App.css'
 import Table from './components/table'
 
